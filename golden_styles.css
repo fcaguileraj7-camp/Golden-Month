@@ -1,0 +1,205 @@
+:root {
+    --card-height: 400px;
+    --card-width: calc(var(--card-height) / 1.5);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1200;
+    color: #f0d060;
+    font-family: 'MedievalSharp', serif;
+    margin: 0;
+    padding: 30px;
+}
+
+.tarjeta {
+    background-color: #2a1e00;
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+    border: 2px solid #c8a200;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #c8a200;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.6rem;
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffaa00;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 99;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #e6b800;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #5a4200;
+    padding-bottom: 8px;
+}
+
+.seccion {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+p {
+    font-size: 1.05rem;
+    margin: 8px 0;
+}
+
+.descripcion {
+    font-family: 'MedievalSharp', serif;
+    font-size: 1rem;
+    color: #ddc87a;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.etiqueta {
+    border: 1px solid #c8a200;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 0.85rem;
+    color: #ffd700;
+    box-shadow: 0 0 5px #c8a200, 0 3px 8px rgba(180, 130, 0, 0.5);
+    background: rgba(100, 70, 0, 0.3);
+}
+
+ul, ol {
+    display: inline-block;
+    text-align: left;
+    font-size: 1rem;
+    padding-left: 20px;
+    line-height: 2;
+    color: #f0d060;
+}
+
+table {
+    width: auto;
+    min-width: 260px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid #c8a200;
+    padding: 9px 20px;
+    text-align: left;
+}
+
+th {
+    color: #ffd700;
+}
+
+.numero {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.tabla-centro {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 36px;
+    perspective: 2500px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.wrapper {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.card:hover .wrapper {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+    border-radius: 5px;
+}
+
+.wrapper::before {
+   top: 0;
+    height: 100%;
+    background-image: linear-gradient(to top, transparent 46%, rgba(0, 2, 14, 0.925) 68%, rgba(12,13,19) 97%);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.wrapper::after {
+    bottom: 0;
+    opacity: 1;
+    background-image: linear-gradient(to bottom, transparent 46%, rgba(12,13,19,0.5) 68%, rgba(12,13,19) 97%);
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+    opacity: 1;
+}
+
+.card:hover .wrapper::after {
+    height: 120px;
+}
+
+.title {
+    width: 200%;
+    min-height: 80px;
+    object-fit: contain;
+    transition: transform 0.5s;
+    mix-blend-mode: lighten;
+}
+
+.card:hover .title {
+    transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+    width: 150%;
+    opacity: 0;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: 2;
+    mix-blend-mode: lighten;
+}
+
+.card:hover .character {
+    opacity: 1;
+    transform: translate3d(0%, -30%, 100px);
+}
