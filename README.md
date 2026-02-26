@@ -3,7 +3,7 @@ Página web informativa sobre el juego Golden Month de Mobile Legends, con efect
 
 ## 📸 Vista Previa
 
-![preview](Golden-Month/imagenes/captura.jpg)
+![preview](imagenes/captura.jpg)
 
 Página con carta interactiva 3D, ficha de personaje, stats y equipo del juego.
 🚀 Características
